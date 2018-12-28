@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Presentation", "01-Presentation", "{B991CCD8-29D6-4C38-9939-38917600769C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Aplication", "02-Aplication", "{163397CA-8E1A-464D-9CFC-BC82D8312DF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Service", "03-Service", "{CCF811ED-9E5B-4330-BA1B-A24F12FA435F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Domain", "04-Domain", "{5BAD27EB-72AE-48B8-A7F5-3CD312F0F386}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Infrastructure", "05-Infrastructure", "{461F9D3C-BDA6-406C-8560-2339882CEB46}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC2D3A54-BE34-488A-BC48-D3F2153B1519}
+	EndGlobalSection
+EndGlobal
