@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnymousMobile.Views.WelcomePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImage="FondoApp.png">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding WelcomeVM}"
+            BackgroundColor="Gray">
+            <!-- LOGO -->
+            <BoxView
+                BackgroundColor="White"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                Margin="0,60"
+                WidthRequest="80"/>
+            <StackLayout
+                Padding="24"
+                VerticalOptions="EndAndExpand">
+                
+                <!-- CREATE ACCOUNT -->
+                <Button
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    Command="{Binding CommandCreateAccount}"
+                    Text="Crear cuenta"
+                    TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- LOGIN -->
+                <Button
+                    BackgroundColor="{StaticResource ColorWhite}"
+                    Command="{Binding CommandLogin}"
+                    Text="Iniciar sesión"
+                    TextColor="{StaticResource ColorPrimary}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

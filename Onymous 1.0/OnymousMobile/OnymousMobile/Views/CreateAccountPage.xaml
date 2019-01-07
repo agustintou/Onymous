@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnymousMobile.Views.CreateAccountPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="Gray"
+            BindingContext="{Binding CreateAccountVM}"
+            Padding="24">
+            <!-- TITLE -->
+            <Label
+                Font="25"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                Text="Registro"
+                TextColor="{StaticResource ColorPrimary}"/>
+            <BoxView
+                BackgroundColor="{StaticResource ColorWhite}"
+                HeightRequest="1"
+                Margin="10"/>
+            
+            <!--FULL NAME-->
+            <Label
+                Text="Nombre completo"
+                TextColor="{StaticResource ColorWhite}"
+                x:Name="lblFullName"/>
+            <Entry
+                Placeholder="Nombre completo"
+                Focused="FullName_Focused"
+                Unfocused="FullName_Unfocused"
+                x:Name="txtFullName"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

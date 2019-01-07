@@ -10,6 +10,8 @@
             <infra:InstanceLocator x:Key="Locator"/>
             
             <!-- COLORS -->
+            <Color x:Key="ColorWhite">#FFF</Color>
+            <Color x:Key="ColorPrimary">#17301C</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

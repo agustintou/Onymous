@@ -160,4 +160,7 @@
       <Name>OnymousMobile</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FondoApp.png" />
+  </ItemGroup>
 </Project>
