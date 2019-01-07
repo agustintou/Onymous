@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnymousXamarin.Views.RegisterPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="Black">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            BindingContext="{Binding RegisterVM}"
+            Command="{Binding CommandClear}"
+            Icon="ic_clear_white.png"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+            BindingContext="{Binding RegisterVM}"
+            Padding="24">
+
+                <!--TITLE -->
+                <Label
+                Font="20"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                Margin="0,10"
+                Text="Registro"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- NAME -->
+                <Grid
+                ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    HeightRequest="10"
+                    WidthRequest="10"/>
+                    <Label
+                    Grid.Column="1"
+                    Text="Nombre completo"
+                    TextColor="{StaticResource ColorPrimary}"/>
+                </Grid>
+                <Entry
+                Placeholder="Nombre"
+                PlaceholderColor="{StaticResource ColorPlaceholders}"
+                Text="{Binding Person.FullName, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- EMAIL -->
+                <Grid
+                ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    HeightRequest="10"
+                    WidthRequest="10"/>
+                    <Label
+                    Grid.Column="1"
+                    Text="Email"
+                    TextColor="{StaticResource ColorPrimary}"/>
+                </Grid>
+                <Entry
+                Placeholder="Email"
+                PlaceholderColor="{StaticResource ColorPlaceholders}"
+                Text="{Binding Person.Email, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- MOBILE -->
+                <Grid
+                ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    HeightRequest="10"
+                    WidthRequest="10"/>
+                    <Label
+                    Grid.Column="1"
+                    Text="Mobile"
+                    TextColor="{StaticResource ColorPrimary}"/>
+                </Grid>
+                <Entry
+                Placeholder="Mobile"
+                PlaceholderColor="{StaticResource ColorPlaceholders}"
+                Text="{Binding Person.Mobile, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- USER NAME -->
+                <Grid
+                ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    HeightRequest="10"
+                    WidthRequest="10"/>
+                    <Label
+                    Grid.Column="1"
+                    Text="User"
+                    TextColor="{StaticResource ColorPrimary}"/>
+                </Grid>
+                <Entry
+                Placeholder="User"
+                PlaceholderColor="{StaticResource ColorPlaceholders}"
+                Text="{Binding User.UserName, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- PASSWORD -->
+                <Grid
+                ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    HeightRequest="10"
+                    WidthRequest="10"/>
+                    <Label
+                    Grid.Column="1"
+                    Text="Contraseña"
+                    TextColor="{StaticResource ColorPrimary}"/>
+                </Grid>
+                <Entry
+                Placeholder="Contraseña"
+                PlaceholderColor="{StaticResource ColorPlaceholders}"
+                Text="{Binding User.Password, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- CONFIRM PASSWORD -->
+                <Grid
+                ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    HeightRequest="10"
+                    WidthRequest="10"/>
+                    <Label
+                    Grid.Column="1"
+                    Text="Confirmar contraseña"
+                    TextColor="{StaticResource ColorPrimary}"/>
+                </Grid>
+                <Entry
+                Placeholder="Confirmar"
+                PlaceholderColor="{StaticResource ColorPlaceholders}"
+                Text="{Binding ConfirmPassword, Mode=TwoWay}"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- ACCEPT -->
+                <Button
+                BackgroundColor="{StaticResource ColorPrimary}"
+                Command="{Binding CommandAccept}"
+                Margin="10"
+                Text="Crear cuenta"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- RETURN LOGIN -->
+                <StackLayout
+                VerticalOptions="EndAndExpand">
+                    <Label
+                    HorizontalOptions="CenterAndExpand"
+                    Text="¿Ya tienes una cuenta?"
+                    TextColor="Blue">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                            Command="{Binding CommandReturnLogin}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

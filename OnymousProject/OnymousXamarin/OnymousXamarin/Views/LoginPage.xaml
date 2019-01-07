@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ef="clr-namespace:OnymousXamarin.Design"
+             x:Class="OnymousXamarin.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImage="FondoApp.png"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+            BindingContext="{Binding LoginVM}"
+            Padding="24">
+
+                <!-- LOGO -->
+                <BoxView
+                BackgroundColor="{StaticResource ColorWhite}"
+                HorizontalOptions="Center"
+                HeightRequest="75"
+                WidthRequest="75"/>
+
+                <!-- TITLE-->
+                <Label
+                Font="20"
+                FontFamily=""
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                Text="Onymous"
+                TextColor="{StaticResource ColorPrimary}"/>
+
+                <StackLayout
+                VerticalOptions="CenterAndExpand">
+                    <!-- TITLE-->
+                    <Label
+                        FontAttributes="Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Margin="0,0,0,10"
+                        Text="Ingresa sus datos..."
+                        TextColor="{StaticResource ColorWhite}"/>
+
+                    <!-- DATA -->
+                    <!-- USER NAME / EMAIL -->
+                    <Label
+                        
+                        Grid.Column="1"
+                        Text="Usuario o email"
+                        TextColor="{StaticResource ColorPrimary}"/>
+                    <ef:MyEntry
+                        Image="ic_person_primary"
+                        Placeholder="Usuario"
+                        PlaceholderColor="{StaticResource ColorPlaceholders}"
+                        Text="{Binding User.UserName, Mode=TwoWay}"
+                        TextColor="{StaticResource ColorWhite}">
+                    </ef:MyEntry>
+
+                    <!-- PASSWORD -->
+                    <Grid
+                        ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <BoxView
+                        BackgroundColor="{StaticResource ColorPrimary}"
+                        HeightRequest="10"
+                        WidthRequest="10"/>
+                        <Label
+                        Grid.Column="1"
+                        Text="Contraseña"
+                        TextColor="{StaticResource ColorPrimary}"/>
+                    </Grid>
+                    <ef:MyEntry
+                        Image="ic_lock_primary"
+                        IsPassword="True"
+                        Placeholder="Contraseña"
+                        PlaceholderColor="{StaticResource ColorPlaceholders}"
+                        Text="{Binding User.Password, Mode=TwoWay}"
+                        TextColor="{StaticResource ColorWhite}">
+                        <ef:MyEntry.Effects>
+                            <ef:ShowHidePassEffect/>
+                        </ef:MyEntry.Effects>
+                    </ef:MyEntry>
+                </StackLayout>
+
+                <!-- LOGIN -->
+                <StackLayout
+                        VerticalOptions="EndAndExpand">
+                    <Button
+                            BackgroundColor="{StaticResource ColorPrimary}"
+                            Text="Iniciar sesíon"
+                            TextColor="{StaticResource ColorWhite}"/>
+
+                    <!-- RETURN REGISTER -->
+                    <Label
+                            HorizontalOptions="CenterAndExpand"
+                            Margin="5"
+                            Text="¿No tienes una cuenta?"
+                            TextColor="{StaticResource ColorWhite}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding CommandReturnRegister}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <!-- OR -->
+                    <Grid
+                        ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <BoxView
+                            BackgroundColor="{StaticResource ColorWhite}"
+                            Grid.Column="0"
+                            HeightRequest="1"
+                            VerticalOptions="Center"/>
+                        <BoxView
+                            BackgroundColor="{StaticResource ColorWhite}"
+                            Grid.Column="2"
+                            HeightRequest="1"
+                            VerticalOptions="Center"/>
+                        <Label
+                            FontAttributes="Bold"
+                            Grid.Column="1"
+                            Text="OR"
+                            TextColor="{StaticResource ColorWhite}"/>
+                    </Grid>
+                </StackLayout>
+
+                <!-- SOCIAL NETWORKS -->
+                <StackLayout
+                    VerticalOptions="EndAndExpand">
+                    <Grid
+                    ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- FACEBOOK -->
+                        <Image
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            Source="facebook.png"
+                            WidthRequest="50">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                Command="{Binding CommandFacebook}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <!-- INSTAGRAM -->
+                        <Image
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            Source="instagram.png"
+                            WidthRequest="50">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                Command="{Binding CommandInstagram}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <!-- ANONYMOUS -->
+                        <Image
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            Source="user.png"
+                            WidthRequest="50">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding CommandAnonymous}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <!-- NAME SOCIAL NETWORKS -->
+                        <Label
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            HorizontalOptions="Center"
+                            Text="Facebook"
+                            TextColor="{StaticResource ColorWhite}"/>
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            HorizontalOptions="Center"
+                            Text="Instagram"
+                            TextColor="{StaticResource ColorWhite}"/>
+                        <Label
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            HorizontalOptions="Center"
+                            Text="Anonimo"
+                            TextColor="{StaticResource ColorWhite}"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

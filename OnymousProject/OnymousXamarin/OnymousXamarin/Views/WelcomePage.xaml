@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnymousXamarin.Views.WelcomePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImage="FondoApp.png">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding WelcomeVM}"
+            Padding="24">
+            <!-- CLOSE -->
+            <Image
+                BackgroundColor="Black"
+                HeightRequest="40"
+                HorizontalOptions="EndAndExpand"
+                WidthRequest="40">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding CommandClose}"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <StackLayout
+                VerticalOptions="EndAndExpand">
+                <!-- CREATE ACCOUNT -->
+                <Button
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    Command="{Binding CommandCreateAccount}"
+                    Text="Crear cuenta"
+                    TextColor="{StaticResource ColorWhite}"/>
+
+                <!-- LOG IN -->
+                <Button
+                    BackgroundColor="{StaticResource ColorWhite}"
+                    Command="{Binding CommandLogin}"
+                    Text="Iniciar sesión"
+                    TextColor="{StaticResource ColorPrimary}"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

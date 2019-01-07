@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="OnymousXamarin.Views.MenuPage"
+             Title="Menú"
+             BackgroundColor="LightGray"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <!-- DATA -->
+                <StackLayout
+                VerticalOptions="StartAndExpand">
+                    <controls:CircleImage
+                    Aspect="AspectFit"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0,3,0,0"
+                    Source="user.png"
+                    WidthRequest="160"/>
+                </StackLayout>
+
+                <!-- MENU USER -->
+                <StackLayout
+                    VerticalOptions="CenterAndExpand">
+                    <ListView
+                        ItemsSource="{Binding Menu}"
+                        HasUnevenRows="True"
+                        SeparatorVisibility="Default"
+                        SeparatorColor="{StaticResource ColorPrimary}"
+                        x:Name="LstMenu">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding CommandNavigation}"/>
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Source="{Binding Icon}"
+                                            WidthRequest="50"
+                                            HeightRequest="50"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            VerticalOptions="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Title}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
+                <!-- MENU EXIT -->
+                <StackLayout
+                    VerticalOptions="EndAndExpand">
+                    <ListView
+                        ItemsSource="{Binding MenuExit}"
+                        HasUnevenRows="True"
+                        SeparatorVisibility="Default"
+                        SeparatorColor="{StaticResource ColorPrimary}"
+                        x:Name="LstMenuExit">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding CommandNavigation}"/>
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Source="{Binding Icon}"
+                                            WidthRequest="50"
+                                            HeightRequest="50"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            VerticalOptions="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Title}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
+            </StackLayout>
+            
+        </ScrollView>        
+    </ContentPage.Content>
+</ContentPage>
