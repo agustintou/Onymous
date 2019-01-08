@@ -48,6 +48,8 @@ namespace OnymousMobile.ViewModels
         public ICommand CommandLoginFacebook { get { return new RelayCommand(LoginFacebookC); } }
 
         public ICommand CommandLoginInstagram { get { return new RelayCommand(LoginInstagramC); } }
+
+        public ICommand CommandLoginAnonymous { get { return new RelayCommand(LoginAnonymousC); } }
         #endregion
 
         #region Builders
@@ -69,6 +71,11 @@ namespace OnymousMobile.ViewModels
         }
 
         void LoginInstagramC()
+        {
+
+        }
+
+        void LoginAnonymousC()
         {
 
         }

@@ -22,6 +22,7 @@
                     VerticalOptions="StartAndExpand">
                     <!-- DATA -->
                     <Label
+                        Font="17"
                         FontAttributes="Bold"
                         Margin="0,0,0,24"
                         Text="Ingrese sus datos."
@@ -104,6 +105,13 @@
                         BackgroundColor="#cd486b"
                         Command="{Binding CommandLoginInstagram}"
                         Text="Instagram"
+                        TextColor="{StaticResource ColorWhite}"/>
+
+                    <!-- ANONYMOUS -->
+                    <Button
+                        BackgroundColor="Black"
+                        Command="{Binding CommandLoginAnonymous}"
+                        Text="Entrar como anonimo"
                         TextColor="{StaticResource ColorWhite}"/>
                 </StackLayout>
             </StackLayout>
