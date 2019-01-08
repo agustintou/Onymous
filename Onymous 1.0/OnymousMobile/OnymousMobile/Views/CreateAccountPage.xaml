@@ -1,35 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OnymousMobile.Views.CreateAccountPage"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+             x:Class="OnymousMobile.Views.CreateAccountPage">
     <ContentPage.Content>
-        <StackLayout
-            BackgroundColor="Gray"
-            BindingContext="{Binding CreateAccountVM}"
-            Padding="24">
-            <!-- TITLE -->
-            <Label
-                Font="25"
+        <ScrollView>
+            <StackLayout
+                BackgroundColor="Gray"
+                Padding="24">
+                <!-- TITLE -->
+                <Label
+                    Font="25"
+                    FontAttributes="Bold"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="REGISTRO"
+                    TextColor="{StaticResource ColorPrimary}"/>
+                <BoxView
+                    BackgroundColor="{StaticResource ColorWhite}"
+                    HeightRequest="1"
+                    Margin="24,0,24,24"/>
+
+                <!-- FULL NAME -->
+                <Label
+                    FontAttributes="Bold"
+                    Text="Nombre completo"
+                    TextColor="{StaticResource ColorWhite}"/>
+                <Entry
+                    Placeholder="Nombre completo"
+                    PlaceholderColor="{StaticResource Placeholders}"
+                    Text="{Binding Person.FullName, Mode=TwoWay}"/>
+
+                <!-- EMAIL -->
+                <Label
                 FontAttributes="Bold"
-                HorizontalOptions="CenterAndExpand"
-                Text="Registro"
-                TextColor="{StaticResource ColorPrimary}"/>
-            <BoxView
-                BackgroundColor="{StaticResource ColorWhite}"
-                HeightRequest="1"
-                Margin="10"/>
-            
-            <!--FULL NAME-->
-            <Label
-                Text="Nombre completo"
-                TextColor="{StaticResource ColorWhite}"
-                x:Name="lblFullName"/>
-            <Entry
-                Placeholder="Nombre completo"
-                Focused="FullName_Focused"
-                Unfocused="FullName_Unfocused"
-                x:Name="txtFullName"/>
-        </StackLayout>
+                Text="Email"
+                TextColor="{StaticResource ColorWhite}"/>
+
+                <Entry
+                Placeholder="Email"
+                PlaceholderColor="{StaticResource Placeholders}"
+                Text="{Binding Person.Email, Mode=TwoWay}"/>
+
+                <!-- USER -->
+                <Label
+                    FontAttributes="Bold"
+                    Text="Usuario"
+                    TextColor="{StaticResource ColorWhite}"/>
+
+                <Entry
+                    Placeholder="Usuario"
+                    PlaceholderColor="{StaticResource Placeholders}"
+                    Text="{Binding User.UserName, Mode=TwoWay}"/>
+
+                <!-- PASSWORD -->
+                <Label
+                    FontAttributes="Bold"
+                    Text="Contraseña"
+                    TextColor="{StaticResource ColorWhite}"/>
+
+                <Entry
+                    IsPassword="True"
+                    Placeholder="Contraseña"
+                    PlaceholderColor="{StaticResource Placeholders}"
+                    Text="{Binding User.Password, Mode=TwoWay}"/>
+
+                <!-- CONFIRM PASSWORD -->
+                <Label
+                    FontAttributes="Bold"
+                    Text="Confirmar contraseña"
+                    TextColor="{StaticResource ColorWhite}"/>
+
+                <Entry
+                    IsPassword="True"
+                    Placeholder="Confirmar contraseña"
+                    PlaceholderColor="{StaticResource Placeholders}"
+                    Text="{Binding ConfirmPassword, Mode=TwoWay}"/>
+
+                <!-- REGISTER -->
+                <StackLayout
+                    VerticalOptions="EndAndExpand">
+                    <Button
+                        BackgroundColor="{StaticResource ColorPrimary}"
+                        Command="{Binding CommandRegister}"
+                        Text="Registrarme"
+                        TextColor="{StaticResource ColorWhite}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

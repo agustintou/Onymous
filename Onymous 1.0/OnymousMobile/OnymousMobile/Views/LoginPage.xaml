@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnymousMobile.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                BackgroundColor="Gray"
+                BindingContext="{Binding LoginVM}"
+                Padding="24">
+
+                <!-- LOGO -->
+                <BoxView
+                    BackgroundColor="White"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    Margin="0,20"
+                    WidthRequest="80"/>
+
+                <StackLayout
+                    VerticalOptions="StartAndExpand">
+                    <!-- DATA -->
+                    <Label
+                        FontAttributes="Bold"
+                        Margin="0,0,0,24"
+                        Text="Ingrese sus datos."
+                        TextColor="{StaticResource ColorPrimary}"/>
+
+                    <!-- USER -->
+                    <Label
+                        FontAttributes="Bold"
+                        Text="Usuario/Email"
+                        TextColor="{StaticResource ColorWhite}"/>
+
+                    <Entry
+                        Placeholder="Usuario/Email"
+                        PlaceholderColor="{StaticResource Placeholders}"
+                        Text="{Binding User.UserName, Mode=TwoWay}"/>
+
+                    <!-- PASSWORD -->
+                    <Label
+                        FontAttributes="Bold"
+                        Text="Contraseña"
+                        TextColor="{StaticResource ColorWhite}"/>
+
+                    <Entry
+                        IsPassword="True"
+                        Placeholder="Contraseña"
+                        PlaceholderColor="{StaticResource Placeholders}"
+                        Text="{Binding User.Password, Mode=TwoWay}"/>
+                    
+                    <!-- MESSAGE -->
+                    <Label
+                        IsVisible="{Binding IsVisibleMessage}"
+                        Text="{Binding Message, Mode=TwoWay}"
+                        TextColor="Red"/>
+
+                    <!-- LOGIN -->
+                    <Button
+                        BackgroundColor="{StaticResource ColorPrimary}"
+                        Command="{Binding CommandLogin}"
+                        Text="Iniciar sesión"
+                        TextColor="{StaticResource ColorWhite}"/>
+                </StackLayout>
+                
+                <!-- OR -->
+                <StackLayout
+                    VerticalOptions="EndAndExpand">
+                    <Grid
+                        ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView
+                            Grid.Column="0"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            VerticalOptions="Center"/>
+                        <BoxView
+                            Grid.Column="2"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            VerticalOptions="Center"/>
+                        <Label
+                            Grid.Column="1"
+                            Text="OR"
+                            TextColor="{StaticResource ColorWhite}"
+                            VerticalOptions="Center"/>
+                    </Grid>
+                    
+                    <!-- FACEBOOK -->
+                    <Button
+                        BackgroundColor="#3b5998"
+                        Command="{Binding CommandLoginFacebook}"
+                        Text="Facebook"
+                        TextColor="{StaticResource ColorWhite}"/>
+
+                    <!-- INSTAGRAM -->
+                    <Button
+                        BackgroundColor="#cd486b"
+                        Command="{Binding CommandLoginInstagram}"
+                        Text="Instagram"
+                        TextColor="{StaticResource ColorWhite}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

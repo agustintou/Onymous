@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace OnymousMobile.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CreateAccountPage : ContentPage
+	public partial class LoginPage : ContentPage
 	{
-		public CreateAccountPage ()
+		public LoginPage ()
 		{
 			InitializeComponent ();
 		}

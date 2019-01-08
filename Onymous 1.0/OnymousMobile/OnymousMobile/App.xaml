@@ -12,6 +12,7 @@
             <!-- COLORS -->
             <Color x:Key="ColorWhite">#FFF</Color>
             <Color x:Key="ColorPrimary">#17301C</Color>
+            <Color x:Key="Placeholders">#646464</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

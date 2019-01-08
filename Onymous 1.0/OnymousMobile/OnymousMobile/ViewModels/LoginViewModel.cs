@@ -1,30 +1,12 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using OnymousMobile.Models;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace OnymousMobile.ViewModels
 {
-    public class CreateAccountViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         #region Attributes
-        private Person _person { get; set; }
-        public Person Person
-        {
-            get
-            {
-                return this._person;
-            }
-            set
-            {
-                if(value != _person)
-                {
-                    _person = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         private User _user { get; set; }
         public User User
         {
@@ -34,7 +16,7 @@ namespace OnymousMobile.ViewModels
             }
             set
             {
-                if (value != _user)
+                if(value != _user)
                 {
                     _user = value;
                     OnPropertyChanged();
@@ -42,18 +24,18 @@ namespace OnymousMobile.ViewModels
             }
         }
 
-        public string _confirmPassword { get; set; }
-        public string ConfirmPassword
+        private string _message { get; set; }
+        public string Message
         {
             get
             {
-                return this._confirmPassword;
+                return this._message;
             }
             set
             {
-                if (value != _confirmPassword)
+                if (value != _message)
                 {
-                    _confirmPassword = value;
+                    _message = value;
                     OnPropertyChanged();
                 }
             }
@@ -61,18 +43,32 @@ namespace OnymousMobile.ViewModels
         #endregion
 
         #region Properties
-        public ICommand CommandRegister { get { return new RelayCommand(RegisterC); } }
+        public ICommand CommandLogin { get { return new RelayCommand(LoginC); } }
+
+        public ICommand CommandLoginFacebook { get { return new RelayCommand(LoginFacebookC); } }
+
+        public ICommand CommandLoginInstagram { get { return new RelayCommand(LoginInstagramC); } }
         #endregion
 
         #region Builders
-        public CreateAccountViewModel()
+        public LoginViewModel()
         {
             InitialData();
         }
         #endregion
 
         #region Commands
-        void RegisterC()
+        void LoginC()
+        {
+
+        }
+
+        void LoginFacebookC()
+        {
+
+        }
+
+        void LoginInstagramC()
         {
 
         }
@@ -81,9 +77,7 @@ namespace OnymousMobile.ViewModels
         #region Methods
         void InitialData()
         {
-            Person = new Person();
             User = new User();
-            ConfirmPassword = string.Empty;
         }
         #endregion
     }
