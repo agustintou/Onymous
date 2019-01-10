@@ -1,12 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OnymousMobile.Views.MainPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+             x:Class="OnymousMobile.Views.MainPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    
+    <!-- PERFIL -->
+    <ContentPage
+        Title="Perfil"
+        Icon="ic_person_white.png"/>
+
+    <!-- SEARCH -->
+    <ContentPage
+        Title="Buscar"
+        Icon="ic_search_white.png"/>
+
+    <!-- QUESTIONS -->
+    <ContentPage
+        Title="Preguntas"
+        Icon="ic_question_white.png"/>
+    
+</TabbedPage>

@@ -163,4 +163,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\FondoApp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_person_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_question_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_search_white.png" />
+  </ItemGroup>
 </Project>
