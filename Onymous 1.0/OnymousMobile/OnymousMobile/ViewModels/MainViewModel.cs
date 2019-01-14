@@ -7,13 +7,13 @@
         #endregion
 
         #region Properties
-
+        public CreateAccountViewModel CreateAccountVM { get; set; }
         #endregion
 
         #region Builders
         public MainViewModel()
         {
-
+            CreateAccountVM = new CreateAccountViewModel();
         }
         #endregion
 

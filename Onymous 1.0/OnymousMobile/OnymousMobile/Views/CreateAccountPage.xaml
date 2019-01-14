@@ -1,90 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OnymousMobile.Views.CreateAccountPage">
+             xmlns:caro="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="OnymousMobile.Views.CreateAccountPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImage="FondoAppVerde">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout
-                BackgroundColor="Gray"
-                Padding="24">
-                <!-- TITLE -->
-                <Label
-                    Font="25"
-                    FontAttributes="Bold"
-                    HorizontalOptions="CenterAndExpand"
-                    Text="REGISTRO"
-                    TextColor="{StaticResource ColorPrimary}"/>
-                <BoxView
-                    BackgroundColor="{StaticResource ColorWhite}"
-                    HeightRequest="1"
-                    Margin="24,0,24,24"/>
 
-                <!-- FULL NAME -->
-                <Label
-                    FontAttributes="Bold"
-                    Text="Nombre completo"
-                    TextColor="{StaticResource ColorWhite}"/>
-                <Entry
-                    Placeholder="Nombre completo"
-                    PlaceholderColor="{StaticResource Placeholders}"
-                    Text="{Binding Person.FullName, Mode=TwoWay}"/>
+        <StackLayout
+            BindingContext="{Binding CreateAccountVM}">
+            <caro:CarouselViewControl
+                x:Name="carousel"
+                IsSwipeEnabled="False"
+                Orientation="Horizontal"
+                Position="{Binding CarouselPosition, Mode=TwoWay}"
+                ShowIndicators="True"
+                CurrentPageIndicatorTintColor="White"
+                IndicatorsTintColor="Black"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                PositionSelected="Carousel_PositionSelected">
+            </caro:CarouselViewControl>
+        </StackLayout>
 
-                <!-- EMAIL -->
-                <Label
-                FontAttributes="Bold"
-                Text="Email"
-                TextColor="{StaticResource ColorWhite}"/>
-
-                <Entry
-                Placeholder="Email"
-                PlaceholderColor="{StaticResource Placeholders}"
-                Text="{Binding Person.Email, Mode=TwoWay}"/>
-
-                <!-- USER -->
-                <Label
-                    FontAttributes="Bold"
-                    Text="Usuario"
-                    TextColor="{StaticResource ColorWhite}"/>
-
-                <Entry
-                    Placeholder="Usuario"
-                    PlaceholderColor="{StaticResource Placeholders}"
-                    Text="{Binding User.UserName, Mode=TwoWay}"/>
-
-                <!-- PASSWORD -->
-                <Label
-                    FontAttributes="Bold"
-                    Text="Contraseña"
-                    TextColor="{StaticResource ColorWhite}"/>
-
-                <Entry
-                    IsPassword="True"
-                    Placeholder="Contraseña"
-                    PlaceholderColor="{StaticResource Placeholders}"
-                    Text="{Binding User.Password, Mode=TwoWay}"/>
-
-                <!-- CONFIRM PASSWORD -->
-                <Label
-                    FontAttributes="Bold"
-                    Text="Confirmar contraseña"
-                    TextColor="{StaticResource ColorWhite}"/>
-
-                <Entry
-                    IsPassword="True"
-                    Placeholder="Confirmar contraseña"
-                    PlaceholderColor="{StaticResource Placeholders}"
-                    Text="{Binding ConfirmPassword, Mode=TwoWay}"/>
-
-                <!-- REGISTER -->
-                <StackLayout
-                    VerticalOptions="EndAndExpand">
-                    <Button
-                        BackgroundColor="{StaticResource ColorPrimary}"
-                        Command="{Binding CommandRegister}"
-                        Text="Registrarme"
-                        TextColor="{StaticResource ColorWhite}"/>
-                </StackLayout>
-            </StackLayout>
-        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

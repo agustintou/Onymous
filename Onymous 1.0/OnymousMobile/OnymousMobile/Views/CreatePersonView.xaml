@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behavior="clr-namespace:OnymousMobile.Behaviors"
+             x:Class="OnymousMobile.Views.CreatePersonView"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentView.Content>
+        <StackLayout
+            BindingContext="{Binding CreateAccountVM}"
+            Padding="24">
+            
+            <!-- BACK -->
+            <Label
+                Font="16"
+                FontAttributes="Bold"
+                Margin="-12"
+                Text="Volver"
+                TextColor="{StaticResource ColorWhite}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding CommandBack}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!--ICON APLICATION-->
+            <BoxView
+                BackgroundColor="#70c8d1"
+                HeightRequest="70"
+                HorizontalOptions="CenterAndExpand"
+                Margin="24"
+                WidthRequest="70"/>
+            
+            <!-- INFORMATION -->
+            <Label
+                Font="20"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                Text="Datos personales"
+                TextColor="Black"/>
+
+            <!-- NOW PERSON -->
+            <StackLayout
+                VerticalOptions="CenterAndExpand">
+                <!-- FULL NAME -->
+                <Label
+                    Font="18"
+                    FontAttributes="Bold"
+                    IsVisible="{Binding IsVisibleFullName, Mode=TwoWay}"
+                    Text="Nombre completo"
+                    TextColor="#70c8d1"/>
+                <Entry
+                        Grid.Column="0"
+                        Placeholder="{Binding PlaceholderFullName, Mode=TwoWay}"
+                        PlaceholderColor="#BDBCBC"
+                        Text="{Binding Person.FullName, Mode=TwoWay}"
+                        TextColor="White">
+                    <Entry.Behaviors>
+                        <behavior:FocusEntryBehaviors ParamEntry="FullName"/>
+                        <behavior:TextChangedEntryBehavior ParamEntry="NowPerson"/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <!-- EMAIL -->
+                <Label
+                    Font="18"
+                    FontAttributes="Bold"
+                    IsVisible="{Binding IsVisibleEmail, Mode=TwoWay}"
+                    Text="Email"
+                    TextColor="#70c8d1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Entry
+                        Grid.Column="0"
+                        Keyboard="Email"
+                        Placeholder="{Binding PlaceholderEmail, Mode=TwoWay}"
+                        PlaceholderColor="#BDBCBC"
+                        Text="{Binding Person.Email, Mode=TwoWay}"
+                        TextColor="White">
+                        <Entry.Behaviors>
+                            <behavior:FocusEntryBehaviors ParamEntry="Email"/>
+                            <behavior:TextChangedEntryBehavior ParamEntry="NowPerson"/>
+                            <behavior:EmailValidatorBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Image
+                        Grid.Column="1"
+                        HeightRequest="30"
+                        Source="{Binding SourceImage, Mode=TwoWay}"
+                        VerticalOptions="Center"
+                        WidthRequest="30"/>
+                </Grid>
+            </StackLayout>
+
+            <!-- NEXT -->
+            <StackLayout
+                VerticalOptions="EndAndExpand">
+                <Button
+                    BackgroundColor="White"
+                    BorderRadius="25"
+                    Command="{Binding CommandNext}"
+                    IsEnabled="{Binding IsEnabledNext, Mode=TwoWay}"
+                    Text="Siguiente"
+                    TextColor="#70c8d1"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
