@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Domain.Repository.Person;
 using Domain.Repository.User;
 using IService.User;
 using IService.User.DTOs;
@@ -10,10 +11,13 @@ namespace Service.User
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IPersonRepository _personRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository,
+            IPersonRepository personRepository)
         {
             _userRepository = userRepository;
+            _personRepository = personRepository;
         }
 
         public void Add(UserDto dto)
@@ -39,6 +43,25 @@ namespace Service.User
             _userRepository.Delete(entityId);
 
             _userRepository.Save();
+        }
+
+        public UserDto GetByAccount(string userName, string password)
+        {
+            var user = _userRepository.GetByAccount(userName, password);
+
+            if(user != null)
+            {
+                return new UserDto
+                {
+                    Id = user.Id,
+                    Locked = user.Locked,
+                    Password = user.Password,
+                    RowVersion = user.RowVersion,
+                    UserName = user.UserName
+                };
+            }
+
+            return null;
         }
 
         public UserDto GetById(long entityId)

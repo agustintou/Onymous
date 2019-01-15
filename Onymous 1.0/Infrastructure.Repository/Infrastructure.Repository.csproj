@@ -31,7 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,6 +65,10 @@
       <Project>{c125d596-970b-4c2a-adc5-31edac11b992}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Context\Infrastructure.Context.csproj">
+      <Project>{3b909c34-072f-40d2-8e62-038b1f12e1d1}</Project>
+      <Name>Infrastructure.Context</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository.Base\Repository.Base.csproj">
       <Project>{4E4CFD22-2E27-487F-B79F-6CB8BE72DD2E}</Project>
       <Name>Repository.Base</Name>
@@ -66,6 +77,10 @@
       <Project>{DFEBA263-8AE7-45E7-844E-75023D4F8A6F}</Project>
       <Name>Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

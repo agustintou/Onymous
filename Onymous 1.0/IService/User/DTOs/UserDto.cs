@@ -1,4 +1,5 @@
-﻿using Service.Base.DTOs;
+﻿using IService.Person.DTOs;
+using Service.Base.DTOs;
 
 namespace IService.User.DTOs
 {
@@ -10,5 +11,6 @@ namespace IService.User.DTOs
 
         public bool Locked { get; set; }
 
+        public PersonDto Person { get; set; }
     }
 }

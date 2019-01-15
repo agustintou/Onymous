@@ -17,5 +17,6 @@ namespace Domain.Entities
         public bool Locked { get; set; }
 
         //Navigation Properties
+        public virtual Person Person { get; set; }
     }
 }

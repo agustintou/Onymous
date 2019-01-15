@@ -12,7 +12,5 @@ namespace IService.Person.DTOs
         public byte[] Image { get; set; }
 
         public string Phone { get; set; }
-
-        //Navigation Properties
     }
 }

@@ -14,5 +14,7 @@ namespace IService.User
         UserDto GetById(long entityId);
 
         IEnumerable<UserDto> GetByString(string stringSearch);
+
+        UserDto GetByAccount(string userName, string password);
     }
 }

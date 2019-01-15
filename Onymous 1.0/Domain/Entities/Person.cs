@@ -1,5 +1,6 @@
 ﻿using Domain.Base;
 using Domain.MetaData;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,6 @@ namespace Domain.Entities
         public string Phone { get; set; }
 
         //Navigation Properties
-
+        public virtual User Users { get; set; }
     }
 }
