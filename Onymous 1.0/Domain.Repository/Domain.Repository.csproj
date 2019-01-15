@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DACF4446-4D69-4DF1-AF03-889EAE79B1E4}</ProjectGuid>
+    <ProjectGuid>{9C215359-FA2B-4916-BDA9-C798E85651CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Service</RootNamespace>
-    <AssemblyName>Service</AssemblyName>
+    <RootNamespace>Domain.Repository</RootNamespace>
+    <AssemblyName>Domain.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Person\PersonService.cs" />
+    <Compile Include="Person\IPersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,33 +49,13 @@
       <Project>{98ac69ea-3bc7-4d9c-a79e-a12ddbea7e79}</Project>
       <Name>Domain.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Repository\Domain.Repository.csproj">
-      <Project>{9C215359-FA2B-4916-BDA9-C798E85651CA}</Project>
-      <Name>Domain.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{c125d596-970b-4c2a-adc5-31edac11b992}</Project>
       <Name>Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.Repository\Infrastructure.Repository.csproj">
-      <Project>{74ad407a-3d62-4881-8ee2-dc979ff33244}</Project>
-      <Name>Infrastructure.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IService\IService.csproj">
-      <Project>{2CAB04E9-900E-4D46-A71C-679DAED2E75A}</Project>
-      <Name>IService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Repository.Base\Repository.Base.csproj">
-      <Project>{4e4cfd22-2e27-487f-b79f-6cb8be72dd2e}</Project>
+      <Project>{4E4CFD22-2E27-487F-B79F-6CB8BE72DD2E}</Project>
       <Name>Repository.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Repository\Repository.csproj">
-      <Project>{dfeba263-8ae7-45e7-844e-75023d4f8a6f}</Project>
-      <Name>Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Service.Base\Service.Base.csproj">
-      <Project>{bdd76f7c-0715-4608-af36-d6dcfcc801f7}</Project>
-      <Name>Service.Base</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -41,7 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Person\PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Base\Domain.Base.csproj">
+      <Project>{98ac69ea-3bc7-4d9c-a79e-a12ddbea7e79}</Project>
+      <Name>Domain.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Repository\Domain.Repository.csproj">
+      <Project>{9c215359-fa2b-4916-bda9-c798e85651ca}</Project>
+      <Name>Domain.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{c125d596-970b-4c2a-adc5-31edac11b992}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.Base\Repository.Base.csproj">
+      <Project>{4E4CFD22-2E27-487F-B79F-6CB8BE72DD2E}</Project>
+      <Name>Repository.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{DFEBA263-8AE7-45E7-844E-75023D4F8A6F}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
