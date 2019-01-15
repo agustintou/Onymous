@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using Domain.Entities;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using static Aplication.ConectionString.ConectionString;
 
@@ -24,5 +25,10 @@ namespace Infrastructure.Context
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        //PROPERTIES
+        public IDbSet<Person> Persons { get; set; }
+
+        public IDbSet<User> Users { get; set; }
     }
 }

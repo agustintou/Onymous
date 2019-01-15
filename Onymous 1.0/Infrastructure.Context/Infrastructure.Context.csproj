@@ -60,6 +60,14 @@
       <Project>{d46ac85a-97c9-48c6-9113-760230262ec1}</Project>
       <Name>Aplication.ConectionString</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain.Base\Domain.Base.csproj">
+      <Project>{98ac69ea-3bc7-4d9c-a79e-a12ddbea7e79}</Project>
+      <Name>Domain.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{C125D596-970B-4C2A-ADC5-31EDAC11B992}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
