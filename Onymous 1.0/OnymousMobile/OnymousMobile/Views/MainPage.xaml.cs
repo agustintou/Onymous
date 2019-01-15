@@ -9,13 +9,10 @@ namespace OnymousMobile.Views
 		public MainPage ()
 		{
 			InitializeComponent ();
-
-            CustomizeTabs();
 		}
 
         private void CustomizeTabs()
         {
-            
         }
     }
 }

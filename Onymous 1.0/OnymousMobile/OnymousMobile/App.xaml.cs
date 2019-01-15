@@ -11,7 +11,7 @@ namespace OnymousMobile
         {
             InitializeComponent();
 
-            MainPage = new CreateAccountPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

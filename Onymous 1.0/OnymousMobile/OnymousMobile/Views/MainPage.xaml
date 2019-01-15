@@ -1,22 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OnymousMobile.Views.MainPage"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:pages="clr-namespace:OnymousMobile.Views"
+            x:Class="OnymousMobile.Views.MainPage"
+            BindingContext="{Binding Main, Source={StaticResource Locator}}"
+            BarBackgroundColor="#1B2F1B">
     
-    <!-- PERFIL -->
-    <ContentPage
-        Title="Perfil"
-        Icon="ic_person_white.png"/>
-
-    <!-- SEARCH -->
-    <ContentPage
-        Title="Buscar"
-        Icon="ic_search_white.png"/>
-
-    <!-- QUESTIONS -->
-    <ContentPage
-        Title="Preguntas"
-        Icon="ic_question_white.png"/>
-    
+    <!-- Pages -->
+    <TabbedPage.Children>
+        <pages:ProfilePage/>
+        <pages:SearchPage/>
+        <pages:QuestionPage/>
+    </TabbedPage.Children>
 </TabbedPage>
