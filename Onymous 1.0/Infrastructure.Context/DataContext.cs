@@ -30,5 +30,7 @@ namespace Infrastructure.Context
         public IDbSet<Person> Persons { get; set; }
 
         public IDbSet<User> Users { get; set; }
+
+        public IDbSet<Question> Questions { get; set; }
     }
 }

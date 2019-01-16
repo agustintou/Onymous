@@ -49,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="MetaData\IPerson.cs" />
+    <Compile Include="MetaData\IQuestion.cs" />
     <Compile Include="MetaData\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

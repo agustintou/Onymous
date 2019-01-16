@@ -21,5 +21,7 @@ namespace Domain.Entities
 
         //Navigation Properties
         public virtual User Users { get; set; }
+
+        public ICollection<Question> Questions { get; set; }
     }
 }

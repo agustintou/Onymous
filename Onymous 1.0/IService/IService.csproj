@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +45,8 @@
     <Compile Include="Person\DTOs\PersonDto.cs" />
     <Compile Include="Person\IPersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question\DTOs\QuestionDto.cs" />
+    <Compile Include="Question\IQuestionService.cs" />
     <Compile Include="User\DTOs\UserDto.cs" />
     <Compile Include="User\IUserService.cs" />
   </ItemGroup>
@@ -52,6 +55,9 @@
       <Project>{BDD76F7C-0715-4608-AF36-D6DCFCC801F7}</Project>
       <Name>Service.Base</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
