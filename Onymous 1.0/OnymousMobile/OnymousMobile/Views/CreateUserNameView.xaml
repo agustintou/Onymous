@@ -1,70 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:behavior="clr-namespace:OnymousMobile.Behaviors"
+             xmlns:inputKit="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="OnymousMobile.Views.CreateUserNameView"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="{StaticResource ColorBackground}">
     <ContentView.Content>
         <StackLayout
             BindingContext="{Binding CreateAccountVM}"
             Padding="24">
             
+            <!-- BACK -->
+            <Label
+                Font="16"
+                FontAttributes="Bold"
+                Margin="-12"
+                Text="Volver"
+                TextColor="{StaticResource ColorWhite}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding CommandBack}"/>
+                </Label.GestureRecognizers>
+            </Label>
+            
             <!--ICON APLICATION-->
             <BoxView
-                BackgroundColor="#70c8d1"
+                BackgroundColor="{StaticResource ColorPrimary}"
                 HeightRequest="70"
                 HorizontalOptions="CenterAndExpand"
                 Margin="24"
                 WidthRequest="70"/>
-
+            
             <StackLayout
                 VerticalOptions="CenterAndExpand">
-                <!-- USER NAME -->
+                <!-- USER NAME-->
+                <inputKit:AdvancedEntry
+                    Annotation="Text"
+                    AnnotationColor="Red"
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    IconImage="ic_prueba"
+                    IsRequired="True"
+                    Placeholder="sample120"
+                    MinLength="5"
+                    MaxLength="25"
+                    Text="{Binding User.UserName, Mode=TwoWay}"
+                    Title="Nombre de usuario"
+                    ValidationMessage="*Tiene que ser mayor a 5 caracteres.">
+                </inputKit:AdvancedEntry>
+                
+                <!-- MESSAGE -->
                 <Label
-                    Font="18"
                     FontAttributes="Bold"
-                    IsVisible="{Binding IsVisibleUserName, Mode=TwoWay}"
-                    Text="Nombre de usuario"
-                    TextColor="#70c8d1"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Entry
-                        Grid.Column="0"
-                        Placeholder="{Binding PlaceholderUserName, Mode=TwoWay}"
-                        PlaceholderColor="#BDBCBC"
-                        Text="{Binding User.UserName, Mode=TwoWay}"
-                        TextColor="White">
-                        <Entry.Behaviors>
-                            <behavior:FocusEntryBehaviors ParamEntry="UserName"/>
-                            <behavior:TextChangedEntryBehavior ParamEntry="NowUser"/>
-                        </Entry.Behaviors>
-                    </Entry>
-                    <Image
-                        BackgroundColor="White"
-                        Grid.Column="1"
-                        HeightRequest="30"
-                        Source="{Binding SourceImage, Mode=TwoWay}"
-                        VerticalOptions="Center"
-                        WidthRequest="30"/>
-                </Grid>
+                    IsVisible="{Binding IsVisibleMessage, Mode=TwoWay}"
+                    Text="{Binding Message, Mode=TwoWay}"
+                    TextColor="Red"/>
             </StackLayout>
 
             <StackLayout
                 VerticalOptions="EndAndExpand">
                 <!-- NEXT -->
                 <Button
-                    BackgroundColor="White"
+                    BackgroundColor="{StaticResource ColorWhite}"
                     BorderRadius="25"
                     Command="{Binding CommandNext}"
                     IsEnabled="{Binding IsEnabledNext, Mode=TwoWay}"
                     Text="Siguiente"
-                    TextColor="#70c8d1"/>
+                    TextColor="{StaticResource ColorPrimary}"/>
             </StackLayout>
-
         </StackLayout>
     </ContentView.Content>
 </ContentView>

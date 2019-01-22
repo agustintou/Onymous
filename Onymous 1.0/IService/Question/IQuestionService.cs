@@ -14,5 +14,7 @@ namespace IService.Question
         QuestionDto GetById(long entityId);
 
         IEnumerable<QuestionDto> GetByString(string stringSearch);
+
+        IEnumerable<QuestionDto> GetByUser(long entityId);
     }
 }

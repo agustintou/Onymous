@@ -2,8 +2,10 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behavior="clr-namespace:OnymousMobile.Behaviors"
+             xmlns:inputKit="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="OnymousMobile.Views.CreatePersonView"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="{StaticResource ColorBackground}">
     <ContentView.Content>
         <StackLayout
             BindingContext="{Binding CreateAccountVM}"
@@ -24,88 +26,70 @@
 
             <!--ICON APLICATION-->
             <BoxView
-                BackgroundColor="#70c8d1"
+                BackgroundColor="{StaticResource ColorPrimary}"
                 HeightRequest="70"
                 HorizontalOptions="CenterAndExpand"
                 Margin="24"
                 WidthRequest="70"/>
-            
+
             <!-- INFORMATION -->
             <Label
                 Font="20"
                 FontAttributes="Bold"
                 HorizontalOptions="CenterAndExpand"
                 Text="Datos personales"
-                TextColor="Black"/>
+                TextColor="{StaticResource ColorWhite}"/>
 
             <!-- NOW PERSON -->
             <StackLayout
                 VerticalOptions="CenterAndExpand">
+                
                 <!-- FULL NAME -->
-                <Label
-                    Font="18"
-                    FontAttributes="Bold"
-                    IsVisible="{Binding IsVisibleFullName, Mode=TwoWay}"
-                    Text="Nombre completo"
-                    TextColor="#70c8d1"/>
-                <Entry
-                        Grid.Column="0"
-                        Placeholder="{Binding PlaceholderFullName, Mode=TwoWay}"
-                        PlaceholderColor="#BDBCBC"
-                        Text="{Binding Person.FullName, Mode=TwoWay}"
-                        TextColor="White">
-                    <Entry.Behaviors>
-                        <behavior:FocusEntryBehaviors ParamEntry="FullName"/>
-                        <behavior:TextChangedEntryBehavior ParamEntry="NowPerson"/>
-                    </Entry.Behaviors>
-                </Entry>
+                <inputKit:AdvancedEntry
+                    Text="{Binding Person.FullName, Mode=TwoWay}"
+                    IsRequired="True"
+                    Title="Nombre completo"
+                    Annotation="Text"
+                    Placeholder="Sample Gorriao"
+                    AnnotationColor="Red"
+                    ValidationMessage="*Tiene que ser mayor a 10 caracteres."
+                    IconImage="ic_person_white.png"
+                    MinLength="10"
+                    MaxLength="25"/>
 
                 <!-- EMAIL -->
+                <inputKit:AdvancedEntry
+                    Text="{Binding Person.Email, Mode=TwoWay}"
+                    IsRequired="True"
+                    Title="E-Mail"
+                    Annotation="Email"
+                    Placeholder="sample@domain.com"
+                    AnnotationColor="Red"
+                    ValidationMessage="*Please type a valid email addres"
+                    IconImage="ic_email_primary.png"
+                    MinLength="10"
+                    MaxLength="50"/>
+                
+                <!-- MESSAGE -->
                 <Label
-                    Font="18"
                     FontAttributes="Bold"
-                    IsVisible="{Binding IsVisibleEmail, Mode=TwoWay}"
-                    Text="Email"
-                    TextColor="#70c8d1"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Entry
-                        Grid.Column="0"
-                        Keyboard="Email"
-                        Placeholder="{Binding PlaceholderEmail, Mode=TwoWay}"
-                        PlaceholderColor="#BDBCBC"
-                        Text="{Binding Person.Email, Mode=TwoWay}"
-                        TextColor="White">
-                        <Entry.Behaviors>
-                            <behavior:FocusEntryBehaviors ParamEntry="Email"/>
-                            <behavior:TextChangedEntryBehavior ParamEntry="NowPerson"/>
-                            <behavior:EmailValidatorBehavior/>
-                        </Entry.Behaviors>
-                    </Entry>
-                    <Image
-                        Grid.Column="1"
-                        HeightRequest="30"
-                        Source="{Binding SourceImage, Mode=TwoWay}"
-                        VerticalOptions="Center"
-                        WidthRequest="30"/>
-                </Grid>
+                    IsVisible="{Binding IsVisibleMessage, Mode=TwoWay}"
+                    Text="{Binding Message, Mode=TwoWay}"
+                    TextColor="Red"/>
             </StackLayout>
 
             <!-- NEXT -->
             <StackLayout
                 VerticalOptions="EndAndExpand">
                 <Button
-                    BackgroundColor="White"
+                    BackgroundColor="{StaticResource ColorWhite}"
                     BorderRadius="25"
                     Command="{Binding CommandNext}"
                     IsEnabled="{Binding IsEnabledNext, Mode=TwoWay}"
                     Text="Siguiente"
-                    TextColor="#70c8d1"/>
+                    TextColor="{StaticResource ColorPrimary}"/>
             </StackLayout>
+
 
         </StackLayout>
     </ContentView.Content>

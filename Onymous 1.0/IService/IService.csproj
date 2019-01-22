@@ -47,6 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question\DTOs\QuestionDto.cs" />
     <Compile Include="Question\IQuestionService.cs" />
+    <Compile Include="UserData\DTOs\UserDataDto.cs" />
+    <Compile Include="UserData\IUserDataService.cs" />
     <Compile Include="User\DTOs\UserDto.cs" />
     <Compile Include="User\IUserService.cs" />
   </ItemGroup>

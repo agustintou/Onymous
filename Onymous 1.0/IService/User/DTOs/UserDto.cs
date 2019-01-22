@@ -11,6 +11,6 @@ namespace IService.User.DTOs
 
         public bool Locked { get; set; }
 
-        public PersonDto Person { get; set; }
+        public long PersonId { get; set; }
     }
 }

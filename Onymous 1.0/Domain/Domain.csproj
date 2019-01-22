@@ -51,14 +51,14 @@
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserData.cs" />
     <Compile Include="MetaData\IPerson.cs" />
     <Compile Include="MetaData\IQuestion.cs" />
     <Compile Include="MetaData\IUser.cs" />
+    <Compile Include="MetaData\IUserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Domain.Base\Domain.Base.csproj">
       <Project>{98AC69EA-3BC7-4D9C-A79E-A12DDBEA7E79}</Project>

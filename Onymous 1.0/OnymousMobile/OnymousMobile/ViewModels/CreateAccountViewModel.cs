@@ -340,6 +340,7 @@ namespace OnymousMobile.ViewModels
                     break;
             }
         }
+
         private void EntryFocusC(string obj)
         {
             switch (obj)

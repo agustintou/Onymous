@@ -5,14 +5,18 @@ namespace IService.Question.DTOs
 {
     public class QuestionDto : DtoBase
     {
-        public int Code { get; set; }
-
-        public string Message { get; set; }
+        public string Description { get; set; }
 
         public DateTime Date { get; set; }
 
         public bool Answered { get; set; }
 
         public bool Anonymous { get; set; }
+
+        //Navigation Properties
+        public long UserAddresseeId { get; set; }
+
+        public long UserOriginId { get; set; }
+
     }
 }

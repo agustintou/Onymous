@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             x:Class="OnymousMobile.Views.MyProfilePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Perfil"
+             Icon="ic_person_white"
+             BackgroundColor="Gray">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="Hello word!"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+            <views:FloatingActionButton
+                Grid.Row="1"
+                Grid.Column="1"
+                Image="ic_message_white.png"
+                ButtonColor="Accent"
+                WidthRequest="100"
+                HeightRequest="100"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Command="{Binding CommandSendQuestion}">
+            </views:FloatingActionButton>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

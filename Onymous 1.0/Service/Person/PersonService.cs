@@ -22,8 +22,8 @@ namespace Service.Person
             {
                 Email = dto.Email,
                 FullName = dto.FullName,
-                Image = dto.Image,
-                Phone = dto.Phone
+                Mobile = dto.Mobile,
+                Photo = dto.Photo
             };
 
             _personRepository.Add(nowPerson);
@@ -35,7 +35,7 @@ namespace Service.Person
             var person = _personRepository.GetById(entityId);
 
             if (person == null)
-                throw new Exception("The person was not found");
+                throw new Exception("No se encontro la persona.");
 
             _personRepository.Delete(entityId);
 
@@ -47,31 +47,31 @@ namespace Service.Person
             var person = _personRepository.GetById(entityId);
 
             if (person == null)
-                throw new Exception("The person was not found");
+                throw new Exception("No se encontro la persona.");
 
             return new PersonDto
             {
                 Email = person.Email,
                 FullName = person.FullName,
                 Id = person.Id,
-                Image = person.Image,
-                Phone = person.Phone,
+                Mobile = person.Mobile,
+                Photo = person.Photo
                 RowVersion = person.RowVersion
             };
         }
 
-        public IEnumerable<PersonDto> GetByString(string stringSearch)
+        public IEnumerable<PersonDto> Get(string stringSearch)
         {
             return _personRepository.GetByFilter(x => x.FullName.Contains(stringSearch)
             || x.Email.Contains(stringSearch)
-            || x.Phone.Contains(stringSearch))
+            || x.Mobile == stringSearch)
             .Select(x => new PersonDto
             {
                 Email = x.Email,
                 FullName = x.FullName,
                 Id = x.Id,
-                Image = x.Image,
-                Phone = x.Phone,
+                Mobile = x.Mobile,
+                Photo = x.Photo,
                 RowVersion = x.RowVersion
             }).OrderBy(x => x.FullName).ThenBy(x => x.Email)
             .ToList();
@@ -82,14 +82,14 @@ namespace Service.Person
             var person = _personRepository.GetById(dto.Id);
 
             if (person == null)
-                throw new Exception("The person was not found");
+                throw new Exception("No se encontro la persona.");
 
             _personRepository.Update(person);
 
             person.FullName = dto.FullName;
             person.Email = dto.Email;
-            person.Phone = dto.Phone;
-            person.Image = dto.Image;
+            person.Photo = dto.Photo;
+            person.Mobile = dto.Mobile;
 
             _personRepository.Save();
         }

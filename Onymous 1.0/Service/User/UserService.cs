@@ -22,11 +22,17 @@ namespace Service.User
 
         public void Add(UserDto dto)
         {
+            var person = _personRepository.GetById(dto.PersonId);
+
+            if (person == null)
+                throw new Exception("No se encontro la persona.");
+
             var nowUser = new Domain.Entities.User
             {
                 Locked = dto.Locked,
                 Password = dto.Password,
-                UserName = dto.UserName
+                UserName = dto.UserName,
+                Person = person
             };
 
             _userRepository.Add(nowUser);
@@ -38,7 +44,7 @@ namespace Service.User
             var user = _userRepository.GetById(entityId);
 
             if (user == null)
-                throw new Exception("The user was not found");
+                throw new Exception("No se encontro el usuario.");
 
             _userRepository.Delete(entityId);
 
@@ -57,7 +63,8 @@ namespace Service.User
                     Locked = user.Locked,
                     Password = user.Password,
                     RowVersion = user.RowVersion,
-                    UserName = user.UserName
+                    UserName = user.UserName,
+                    PersonId = user.Person.Id
                 };
             }
 
@@ -69,7 +76,7 @@ namespace Service.User
             var user = _userRepository.GetById(entityId);
 
             if (user == null)
-                throw new Exception("The user was not found");
+                throw new Exception("No se encontro el usuario.");
 
             return new UserDto
             {
@@ -77,22 +84,9 @@ namespace Service.User
                 Locked = user.Locked,
                 Password = user.Password,
                 RowVersion = user.RowVersion,
-                UserName = user.UserName
+                UserName = user.UserName,
+                PersonId = user.Person.Id
             };
-        }
-
-        public IEnumerable<UserDto> GetByString(string stringSearch)
-        {
-            return _userRepository.GetByFilter(x => x.UserName.Contains(stringSearch))
-            .Select(x => new UserDto
-            {
-                Locked = x.Locked,
-                Password = x.Password,
-                UserName = x.UserName,
-                Id = x.Id,
-                RowVersion = x.RowVersion
-            }).OrderBy(x => x.UserName)
-            .ToList();
         }
 
         public void Update(UserDto dto)
@@ -100,7 +94,7 @@ namespace Service.User
             var user = _userRepository.GetById(dto.Id);
 
             if (user == null)
-                throw new Exception("The user was not found");
+                throw new Exception("No se encontro el usuario.");
 
             _userRepository.Update(user);
 

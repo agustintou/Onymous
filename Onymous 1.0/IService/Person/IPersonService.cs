@@ -13,6 +13,6 @@ namespace IService.Person
 
         PersonDto GetById(long entityId);
 
-        IEnumerable<PersonDto> GetByString(string stringSearch);
+        IEnumerable<PersonDto> Get(string stringSearch);
     }
 }

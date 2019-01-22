@@ -15,13 +15,8 @@ namespace Domain.Entities
 
         public string Email { get; set; }
 
-        public byte[] Image { get; set; }
+        public string Mobile { get; set; }
 
-        public string Phone { get; set; }
-
-        //Navigation Properties
-        public virtual User Users { get; set; }
-
-        public ICollection<Question> Questions { get; set; }
+        public byte[] Photo { get; set; }
     }
 }
